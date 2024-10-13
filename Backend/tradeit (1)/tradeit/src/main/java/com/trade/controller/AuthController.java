@@ -15,7 +15,7 @@ public class AuthController {
     @Autowired
     private UserRepository userRepository;
 
-    
+    @PostMapping("/signup")
     public ResponseEntity<User> register(User user){
         User newUser = new User();
         newUser.setEmail(user.getEmail());
