@@ -9,5 +9,5 @@ public class TradeitApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TradeitApplication.class, args);
 	}
-
+		int hello = 10;
 }
