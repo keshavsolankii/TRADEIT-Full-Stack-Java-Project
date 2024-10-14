@@ -9,6 +9,6 @@ public class HomeController {
 
     @GetMapping
     public String home(){
-        return "welcome to trading platform";
+        return "Welcome to trading platform";
     }
 }
