@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.crypto.SecretKey;
+import java.security.Key;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -14,8 +15,10 @@ import java.util.Set;
 
 public class JwtProvider {
 
-    private static SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRETE_KEY.getBytes());
+    private static final String SECRET_KEY = "your-long-secret-key-that-is-32-bytes-long-for-security"; // 256 bits / 32 bytes
 
+    // Ensure the key is securely derived and of the correct length
+    private static final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     public static String generateToken(Authentication auth){
         Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
         String roles =populateAuthorities(authorities);
